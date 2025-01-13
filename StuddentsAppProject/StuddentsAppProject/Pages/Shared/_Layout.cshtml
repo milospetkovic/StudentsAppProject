@@ -34,14 +34,30 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="row">
+
+            <div class="left-menu col-3">
+                <div class="p-5">
+                    <h3>Left menu</h3>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">Students</li>
+                        <li class="list-group-item">Subjects</li>
+                        <li class="list-group-item">Exams</li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <main role="main" class="pb-3 col-9">
+                @RenderBody()
+            </main>
+
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - StuddentsAppProject - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2025 - StuddentsAppProject - <a asp-area="" asp-page="/Privacy">Privacy</a> | Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
         </div>
     </footer>
 
