@@ -41,9 +41,39 @@
                     <h3>Left menu</h3>
 
                     <ul class="list-group">
-                        <li class="list-group-item">Students</li>
-                        <li class="list-group-item">Subjects</li>
-                        <li class="list-group-item">Exams</li>                        
+                        <li class="list-group-item">
+                            Students
+                            <ul class="list-group mt-2">
+                                <li class="list-group-item">
+                                    <a asp-controller="Student" asp-action="Create" class="text-decoration-none">Add student</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a asp-controller="Student" asp-action="Index" class="text-decoration-none">List of students</a>
+                                </li>
+                            </ul>                                                                                    
+                        </li>
+                        <li class="list-group-item">
+                            Subjects
+                            <ul class="list-group mt-2">
+                                <li class="list-group-item">
+                                    <a asp-controller="Subject" asp-action="Create" class="text-decoration-none">Add subject</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a asp-controller="Subject" asp-action="Index" class="text-decoration-none">List of subjects</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">
+                            Exams
+                            <ul class="list-group mt-2">
+                                <li class="list-group-item">
+                                    <a asp-controller="Exam" asp-action="Create" class="text-decoration-none">Add exam</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a asp-controller="Exam" asp-action="Index" class="text-decoration-none">List of exams</a>
+                                </li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
             </div>
