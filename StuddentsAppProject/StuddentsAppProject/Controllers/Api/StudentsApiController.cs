@@ -3,15 +3,16 @@ using StuddentsAppProject.Data;
 using StuddentsAppProject.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace StuddentsAppProject.Controllers
+namespace StuddentsAppProject.Controllers.Api
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("api/student")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StudentsApiController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public StudentController(AppDbContext context)
+        public StudentsApiController(AppDbContext context)
         {
             _context = context;
         }
@@ -32,7 +33,7 @@ namespace StuddentsAppProject.Controllers
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStudent(int id, Student updatedStudent)
-        {            
+        {
             if (id != updatedStudent.Id)
             {
                 return BadRequest();
@@ -54,7 +55,7 @@ namespace StuddentsAppProject.Controllers
                 }
                 else
                 {
-                    throw; // Ako je neka druga greška, baci izuzetak
+                    throw;
                 }
             }
 

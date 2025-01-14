@@ -45,10 +45,10 @@
                             Students
                             <ul class="list-group mt-2">
                                 <li class="list-group-item">
-                                    <a asp-controller="Student" asp-action="Create" class="text-decoration-none">Add student</a>
+                                    <a href="@Url.Action("Create", "Students")" class="text-decoration-none">Add student</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a asp-controller="Student" asp-action="Index" class="text-decoration-none">List of students</a>
+                                    <a href="@Url.Action("Index", "Students")" class="text-decoration-none">List of students</a>
                                 </li>
                             </ul>                                                                                    
                         </li>

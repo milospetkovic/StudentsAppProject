@@ -41,5 +41,7 @@ app.MapRazorPages();
 // Add to map API controllers.
 app.MapControllers();
 
+app.MapDefaultControllerRoute();
+
 app.Run();
 
