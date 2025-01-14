@@ -1,7 +1,7 @@
 ﻿@model StuddentsAppProject.Models.Student
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create student";
 }
 
 <h1>Create</h1>
@@ -14,21 +14,21 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group my-2">
                 <label asp-for="FirstName" class="control-label">First name:*</label>
-                <input asp-for="FirstName" class="form-control" placeholder="Insert first name"/>
+                <input asp-for="FirstName" id="FirstName" class="form-control" placeholder="Insert first name"/>
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
                 <label asp-for="LastName" class="control-label">Last name:*</label>
-                <input asp-for="LastName" class="form-control" placeholder="Insert last name" />
+                <input asp-for="LastName" id="LastName" class="form-control" placeholder="Insert last name" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
                 <label asp-for="BirthDate" class="control-label">Date of birth:*</label>
-                <input asp-for="BirthDate" class="form-control" />
+                <input asp-for="BirthDate" id="BirthDate" class="form-control" />
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
             <div class="form-group mt-2">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="button" id="submitButton" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -40,4 +40,29 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            
+            var studentData = {
+                firstName: document.getElementById("FirstName").value,
+                lastName: document.getElementById("LastName").value,
+                birthDate: document.getElementById("BirthDate").value
+            };
+
+            console.log('payload is', studentData);
+            
+            axios.post('http://localhost:5159/api/student', studentData)
+                .then(function(response) {
+                    console.log("Student created:", response.data);           
+                    W                    
+                    // redirect to the list of all students.
+                    window.location.href = '@Url.Action("Index", "Students")';
+                })
+                .catch(function(error) {
+                    console.log("Error creating student:", error);
+                    alert('Error creating student');
+                });
+        });
+        </script>
 }
