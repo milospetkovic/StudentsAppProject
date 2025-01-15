@@ -55,7 +55,7 @@
             axios.post('http://localhost:5159/api/student', studentData)
                 .then(function(response) {
                     console.log("Student created:", response.data);           
-                    W                    
+                    
                     // redirect to the list of all students.
                     window.location.href = '@Url.Action("Index", "Students")';
                 })
