@@ -12,21 +12,31 @@
     <div class="col-md-4">
         <form asp-action="Create form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group my-2">
                 <label asp-for="FirstName" class="control-label">First name:*</label>
-                <input asp-for="FirstName" id="FirstName" class="form-control" placeholder="Insert first name"/>
+                <input asp-for="FirstName" id="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
+
             <div class="form-group my-2">
                 <label asp-for="LastName" class="control-label">Last name:*</label>
-                <input asp-for="LastName" id="LastName" class="form-control" placeholder="Insert last name" />
+                <input asp-for="LastName" id="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
+
             <div class="form-group my-2">
                 <label asp-for="BirthDate" class="control-label">Date of birth:*</label>
                 <input asp-for="BirthDate" id="BirthDate" class="form-control" />
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
+
+            <div class="form-group my-2">
+                <label asp-for="JMBG" class="control-label">JMBG:*</label>
+                <input asp-for="JMBG" id="JMBG" class="form-control" />
+                <span asp-validation-for="JMBG" class="text-danger"></span>
+            </div>
+
             <div class="form-group mt-2">
                 <input type="button" id="submitButton" value="Create" class="btn btn-primary" />
             </div>

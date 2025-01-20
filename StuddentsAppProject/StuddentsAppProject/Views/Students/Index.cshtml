@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of students</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.BirthDate)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JMBG)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,6 +39,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BirthDate)
                 @* @item.BirthDate.ToString("dd.MM.yyyy") *@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JMBG)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">View</a> |
