@@ -55,14 +55,20 @@
         document.getElementById("submitButton").addEventListener("click", function() {
             
             var studentData = {
+                //id: 0,
                 firstName: document.getElementById("FirstName").value,
                 lastName: document.getElementById("LastName").value,
-                birthDate: document.getElementById("BirthDate").value
+                birthDate: new Date(document.getElementById("BirthDate").value).toISOString(),
+                jmbg: document.getElementById("JMBG").value,
             };
 
             console.log('payload is', studentData);
-            
-            axios.post('http://localhost:5159/api/student', studentData)
+
+            axios.post('http://localhost:5159/api/student', studentData, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
                 .then(function(response) {
                     console.log("Student created:", response.data);           
                     
@@ -70,7 +76,18 @@
                     window.location.href = '@Url.Action("Index", "Students")';
                 })
                 .catch(function(error) {
+
+                    if (error.response) {
+                        console.log("Server responded with status:", error.response.status);
+                        console.log("Response data:", error.response.data);
+                    } else if (error.request) {
+                        console.log("No response received:", error.request);
+                    } else {
+                        console.log("Error setting up request:", error.message);
+                    }
+
                     console.log("Error creating student:", error);
+
                     alert('Error creating student');
                 });
         });
